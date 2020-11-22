@@ -19,245 +19,245 @@
         border: solid 1px;
         text-align: center;
         padding: 10px;
+        cursor: pointer;
     }
     
     #invisi {
         border: 1px;
-    }
-    
-    #yellow {
-        background-color: yellow;
-    }
-    
-    #orange {
-        background-color: orange;
-    }
-    
-    #lightorange {
-        background-color: rgba(226, 193, 102, 0.774);
-    }
-    
-    #lightgreen {
-        background-color: rgba(71, 238, 71, 0.534);
-    }
-    
-    #lightred {
-        background-color: rgb(255, 146, 146)
-    }
-    
-    #lightviolet {
-        background-color: rgba(238, 130, 238, 0.466);
-    }
-    
-    #lightblue {
-        background-color: rgba(135, 207, 235, 0.842);
-    }
-    
-    #blue {
-        background-color: rgba(62, 62, 247, 0.63);
-    }
-    
-    #green {
-        background-color: rgba(0, 128, 0, 0.719);
+        cursor: auto;
     }
     
     #newelem {
-        background-color: rgba(238, 130, 238, 0.466);
+        background-color: rgba(238, 130, 238);
+    }
+    
+    #newelem1 {
+        background-color: rgb(199, 100, 185);
+    }
+    
+    #newdivision {
+        display: none;
+        border: solid 1px;
+        width: 150px;
+        height: 180px;
+        position: fixed;
+        z-index: 9;
+        margin-left: 45%;
+        margin-top: 15%;
+        text-align: center;
+        size: 20px;
         cursor: pointer;
     }
     
-    #lightviolet2,
-    #newelem1 {
-        background-color: pink;
+    #viewtab {
+        font-size: 50px;
     }
 </style>
+<div id="newdivision" onclick="backnorm()">
+    <h1 id="viewtab"></h1>
+</div>
+<div id="periodic">
 
-<body>
-    <h1>Periodic Table</h1>
-    <table>
-        <tr>
-            <td id="yellow"> H</td>
-            <td colspan="17" id="invisi"></td>
-            <td id="blue">He</td>
-        </tr>
-        <tr>
-            <td id="orange">Li</td>
-            <td id="lightorange">Be</td>
-            <td colspan="11" id="invisi"></td>
-            <td id="green">B</td>
-            <td id="lightgreen">C</td>
-            <td id="lightgreen">N</td>
-            <td id="lightgreen">O</td>
-            <td id="lightgreen">F</td>
-            <td id="blue">Ne</td>
-        </tr>
-        <tr>
-            <td id="orange">Na</td>
-            <td id="lightorange">Mg</td>
-            <td colspan="11" id="invisi">
-            </td>
-            <td id="lightblue">Al</td>
-            <td id="green">Si</td>
-            <td id="lightgreen">P</td>
-            <td id="lightgreen">S</td>
-            <td id="lightgreen">Ci</td>
-            <td id="blue">Ar</td>
-        </tr>
-        <tr>
-            <td id="orange">K</td>
-            <TD id="lightorange">Ca</TD>
-            <td id="lightred">Sc</td>
-            <td id="invisi"></td>
-            <td id="lightred">Ti</td>
-            <td id="lightred">V</td>
-            <td id="lightred">Cr</td>
-            <td id="lightred">Mn</td>
-            <td id="lightred">Fe</td>
-            <td id="lightred">Co</td>
-            <td id="lightred">Ni</td>
-            <td id="lightred">Cu</td>
-            <td id="lightblue">Zn</td>
-            <td id="lightblue">Ga</td>
-            <td id="green">Ge</td>
-            <td id="green">As</td>
-            <td id="lightgreen">Se</td>
-            <td id="lightgreen">Br</td>
-            <td id="blue">Kr</td>
-        </tr>
-        <tr>
-            <td id="orange">Rb</td>
-            <td id="lightorange">Sr</td>
-            <td id="lightred">Y</td>
-            <td id="invisi"></td>
-            <td id="lightred">Zr</td>
-            <td id="lightred">Nb</td>
-            <td id="lightred">Mo</td>
-            <td id="lightred">Tc</td>
-            <td id="lightred">Ru</td>
-            <td id="lightred">Rh</td>
-            <td id="lightred">Pd</td>
-            <td id="lightred">Ag</td>
-            <td id="lightblue">Cd</td>
-            <td id="lightblue">In</td>
-            <td id="lightblue">Sn</td>
-            <td id="green">Sb</td>
-            <td id="green">Te</td>
-            <td id="lightgreen">I</td>
-            <td id="blue">Xe</td>
-        </tr>
-        <tr>
-            <td id="orange">Cs</td>
-            <td id="lightorange">Ba</td>
-            <td id="lightviolet">La</td>
-            <td id="newelem" onclick="clicked()">58-71</td>
-            <td id="lightred">Hf</td>
-            <td id="lightred">Ta</td>
-            <td id="lightred">W</td>
-            <td id="lightred">Re</td>
-            <td id="lightred">Os</td>
-            <td id="lightred">Ir</td>
-            <td id="lightred">Pt</td>
-            <td id="lightred">Au</td>
-            <td id="lightblue">Hg</td>
-            <td id="lightblue">Ti</td>
-            <td id="lightblue">Pb</td>
-            <td id="lightblue">Bi</td>
-            <td id="lightblue">Po</td>
-            <td id="lightblue">At</td>
-            <td id="blue">Rn</td>
-        </tr>
-        <tr>
-            <td id="orange">Fr</td>
-            <td id="lightorange">Ra</td>
-            <td id="lightviolet2">Ac</td>
-            <td id="newelem1" onclick="clicked1()">90-103</td>
-            <TD id="lightred">Rf</TD>
-            <td id="lightred">Db</td>
-            <td id="lightred">Sg</td>
-            <td id="lightred">Bh</td>
-            <td id="lightred">Hs</td>
-            <td id="lightblue">Mt</td>
-            <td id="lightblue">Ds</td>
-            <td id="lightblue">Rg</td>
-            <td id="lightblue">Cn</td>
-            <td id="lightblue">Nh</td>
-            <td id="lightblue">Fl</td>
-            <td id="lightblue">Mc</td>
-            <td id="lightblue">Lv</td>
-            <td id="lightblue">Ts</td>
-            <td id="lightblue">Og</td>
-        </tr>
-    </table>
-
-    <br><br><br>
-
-    <div id="newel">
+    <body>
+        <h1>Periodic Table</h1>
         <table>
-            <tr id="lightviolet">
-                <td>Ce</td>
-                <td>Pr</td>
-                <td>Nd</td>
-                <td>Pm</td>
-                <td>Sm</td>
-                <td>Eu</td>
-                <td>Gd</td>
-                <td>Tb</td>
-                <td>Dy</td>
-                <td>Ho</td>
-                <td>Er</td>
-                <td>Tm</td>
-                <td>Yb</td>
-                <td>Ln</td>
+            <tr>
+                <td bgcolor="#FFFB18" id="H" onclick="getelem(id)">1<br>H</td>
+                <td colspan="17" id="invisi"></td>
+                <td bgcolor="#8F4EFE" id="He" onclick="getelem(id)">2<br>He</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" ; id="Li" onclick="getelem(id)">3<br>Li</td>
+                <td bgcolor="#E7C871 " ; id="be" onclick="getelem(id)">4<br>Be</td>
+                <td colspan="11" id="invisi"></td>
+                <td bgcolor="#21B35A" id="br" onclick="getelem(id)">5<br>B</td>
+                <td bgcolor="#4EF14E" id="c" onclick="getelem(id)">6<br>C</td>
+                <td bgcolor="#4EF14E" id="n" onclick="getelem(id)">7<br>N</td>
+                <td bgcolor="#4EF14E" id="o" onclick="getelem(id)">8<br>O</td>
+                <td bgcolor="#4EF14E" id="f" onclick="getelem(id)">9<br>F</td>
+                <td bgcolor="#8F4EFE" id="ne" onclick="getelem(id)">10<br>Ne</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" id="na" onclick="getelem(id)">11<br>Na</td>
+                <td bgcolor="#E7C871" id="mg" onclick="getelem(id)">12<br>Mg</td>
+                <td colspan="11" id="invisi"></td>
+                <td bgcolor="#4EFEF7" id="al" onclick="getelem(id)">13<br>Al</td>
+                <td bgcolor="#21B35A" id="si" onclick="getelem(id)">14<br>Si</td>
+                <td bgcolor="#4EF14E" id="p" onclick="getelem(id)">15<br>P</td>
+                <td bgcolor="#4EF14E" id="s" onclick="getelem(id)">16<br>S</td>
+                <td bgcolor="#4EF14E" id="ci" onclick="getelem(id)">17<br>Ci</td>
+                <td bgcolor="#8F4EFE" id="ar" onclick="getelem(id)">18<br>Ar</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" id="k" onclick="getelem(id)">19<br>K</td>
+                <TD bgcolor="#E7C871" id="ca" onclick="getelem(id)">20<br>Ca</TD>
+                <td bgcolor="#E19292" id="sc" onclick="getelem(id)">21<br>Sc</td>
+                <td id="invisi"></td>
+                <td bgcolor="#E19292" id="ti" onclick="getelem(id)">22<br>Ti</td>
+                <td bgcolor="#E19292" id="v" onclick="getelem(id)">23<br>V</td>
+                <td bgcolor="#E19292" id="cr" onclick="getelem(id)">24<br>Cr</td>
+                <td bgcolor="#E19292" id="mn" onclick="getelem(id)">25<br>Mn</td>
+                <td bgcolor="#E19292" id="fe" onclick="getelem(id)">26<br>Fe</td>
+                <td bgcolor="#E19292" id="co" onclick="getelem(id)">27<br>Co</td>
+                <td bgcolor="#E19292" id="ni" onclick="getelem(id)">28<br>Ni</td>
+                <td bgcolor="#E19292" id="cu" onclick="getelem(id)">29<br>Cu</td>
+                <td bgcolor="#4EFEF7" id="zn" onclick="getelem(id)">30<br>Zn</td>
+                <td bgcolor="#4EFEF7" id="ga" onclick="getelem(id)">31<br>Ga</td>
+                <td bgcolor="#21B35A" id="ge" onclick="getelem(id)">32<br>Ge</td>
+                <td bgcolor="#21B35A " id="as" onclick="getelem(id)">33<br>As</td>
+                <td bgcolor="#4EF14E" id="se" onclick="getelem(id)">34<br>Se</td>
+                <td bgcolor="#4EF14E" id="br" onclick="getelem(id)">35<br>Br</td>
+                <td bgcolor="#8F4EFE" id="kr" onclick="getelem(id)">36<br>Kr</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" id="rb" onclick="getelem(id)">37<br>Rb</td>
+                <td bgcolor="#E7C871" id="sr" onclick="getelem(id)">38<br>Sr</td>
+                <td bgcolor="#E19292" id="y" onclick="getelem(id)">39<br>Y</td>
+                <td id="invisi"></td>
+                <td bgcolor="#E19292" id="zr" onclick="getelem(id)">40<br>Zr</td>
+                <td bgcolor="#E19292" id="nb" onclick="getelem(id)">41<br>Nb</td>
+                <td bgcolor="#E19292" id="mo" onclick="getelem(id)">42<br>Mo</td>
+                <td bgcolor="#E19292" id="tc" onclick="getelem(id)">43<br>Tc</td>
+                <td bgcolor="#E19292" id="ru" onclick="getelem(id)">44<br>Ru</td>
+                <td bgcolor="#E19292" id="rh" onclick="getelem(id)">45<br>Rh</td>
+                <td bgcolor="#E19292" id="pb" onclick="getelem(id)">46<br>Pd</td>
+                <td bgcolor="#E19292" id="ag" onclick="getelem(id)">47<br>Ag</td>
+                <td bgcolor="#4EFEF7" id="cd" onclick="getelem(id)">48<br>Cd</td>
+                <td bgcolor="#4EFEF7" id="in" onclick="getelem(id)">49<br>In</td>
+                <td bgcolor="#4EFEF7" id="sn" onclick="getelem(id)">50<br>Sn</td>
+                <td bgcolor="#21B35A" id="sb" onclick="getelem(id)">51<br>Sb</td>
+                <td bgcolor="#21B35A" id="te" onclick="getelem(id)">52<br>Te</td>
+                <td bgcolor="#4EF14E" id="i" onclick="getelem(id)">53<br>I</td>
+                <td bgcolor="#8F4EFE" id="xe" onclick="getelem(id)">54<br>Xe</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" id="cs" onclick="getelem(id)">55<br>Cs</td>
+                <td bgcolor="#E7C871" id="ba" onclick="getelem(id)">56<br>Ba</td>
+                <td bgcolor="#EE82EE " id="la" onclick="getelem(id)">57<br>La</td>
+                <td id="newelem" onclick="clicked()">58-71</td>
+                <td bgcolor="#E19292" id="hf" onclick="getelem(id)">72<br>Hf</td>
+                <td bgcolor="#E19292" id="ta" onclick="getelem(id)">73<br>Ta</td>
+                <td bgcolor="#E19292" id="w" onclick="getelem(id)">74<br>W</td>
+                <td bgcolor="#E19292" id="re" onclick="getelem(id)">75<br>Re</td>
+                <td bgcolor="#E19292" id="os" onclick="getelem(id)">76<br>Os</td>
+                <td bgcolor="#E19292" id="ir" onclick="getelem(id)">77<br>Ir</td>
+                <td bgcolor="#E19292" id="pt" onclick="getelem(id)">78<br>Pt</td>
+                <td bgcolor="#E19292" id="au" onclick="getelem(id)">79<br>Au</td>
+                <td bgcolor="#4EFEF7 " id="hg" onclick="getelem(id)">80<br>Hg</td>
+                <td bgcolor="#4EFEF7 " id="ti" onclick="getelem(id)">81<br>Ti</td>
+                <td bgcolor="#4EFEF7 " id="pb" onclick="getelem(id)">82<br>Pb</td>
+                <td bgcolor="#4EFEF7 " id="bi" onclick="getelem(id)">83<br>Bi</td>
+                <td bgcolor="#4EFEF7 " id="po" onclick="getelem(id)">84<br>Po</td>
+                <td bgcolor="#4EFEF7 " id="at" onclick="getelem(id)">85<br>At</td>
+                <td bgcolor="#8F4EFE" id="rn" onclick="getelem(id)">86<br>Rn</td>
+            </tr>
+            <tr>
+                <td bgcolor="orange" id="fr" onclick="getelem(id)">87<br>Fr</td>
+                <td bgcolor="#E7C871 " id="ra" onclick="getelem(id)">88<br>Ra</td>
+                <td bgcolor="#C764B9 " id="ac" onclick="getelem(id)">89<br>Ac</td>
+                <td id="newelem1" onclick="clicked1()">90-103</td>
+                <TD bgcolor="#E19292" id="rf" onclick="getelem(id)">104<br>Rf</TD>
+                <td bgcolor="#E19292" id="db" onclick="getelem(id)">105<br>Db</td>
+                <td bgcolor="#E19292" id="sg" onclick="getelem(id)">106<br>Sg</td>
+                <td bgcolor="#E19292" id="bh" onclick="getelem(id)">107<br>Bh</td>
+                <td bgcolor="#E19292" id="hs" onclick="getelem(id)">108<br>Hs</td>
+                <td bgcolor="#4EFEF7" id="mt" onclick="getelem(id)">109<br>Mt</td>
+                <td bgcolor="#4EFEF7 " id="ds" onclick="getelem(id)">110<br>Ds</td>
+                <td bgcolor="#4EFEF7 " id="rg" onclick="getelem(id)">111<br>Rg</td>
+                <td bgcolor="#4EFEF7 " id="cn" onclick="getelem(id)">112<br>Cn</td>
+                <td bgcolor="#4EFEF7 " id="nh" onclick="getelem(id)">113<br>Nh</td>
+                <td bgcolor="#4EFEF7 " id="fl" onclick="getelem(id)">114<br>Fl</td>
+                <td bgcolor="#4EFEF7 " id="mc" onclick="getelem(id)">115<br>Mc</td>
+                <td bgcolor="#4EFEF7 " id="lv" onclick="getelem(id)">116<br>Lv</td>
+                <td bgcolor="#4EFEF7 " id="ts" onclick="getelem(id)">117<br>Ts</td>
+                <td bgcolor="#4EFEF7 " id="og" onclick="getelem(id)">118<br>Og</td>
             </tr>
         </table>
-    </div>
-    <div id="newel1">
-        <table>
-            <tr id="lightviolet2">
-                <td>Th</td>
-                <td>Pa</td>
-                <td>U</td>
-                <td>Np</td>
-                <td>Pu</td>
-                <td>Am</td>
-                <td>Cm</td>
-                <td>Bk</td>
-                <td>Cf</td>
-                <td>Es</td>
-                <td>Fm</td>
-                <td>Md</td>
-                <td>No</td>
-                <td>Lr</td>
-            </tr>
-        </table>
-    </div>
 
-    <script>
-        var newel = document.getElementById("newel");
-        var newel1 = document.getElementById("newel1");
-        newel.style.display = "none";
-        newel1.style.display = "none";
+        <br><br><br>
 
-        function clicked() {
-            console.log("hi");
-            if (newel.style.display == "none") {
-                newel.style.display = "block";
-            } else {
-                newel.style.display = "none";
-            }
+        <div id="newel">
+            <table>
+                <tr>
+                    <td bgcolor="#EE82EE" id="ce" onclick="getelem(id)">58<br>Ce</td>
+                    <td bgcolor="#EE82EE" id="pr" onclick="getelem(id)">59<br>Pr</td>
+                    <td bgcolor="#EE82EE" id="nd" onclick="getelem(id)">60<br>Nd</td>
+                    <td bgcolor="#EE82EE" id="pm" onclick="getelem(id)">61<br>Pm</td>
+                    <td bgcolor="#EE82EE" id="sm" onclick="getelem(id)">62<br>Sm</td>
+                    <td bgcolor="#EE82EE" id="eu" onclick="getelem(id)">63<br>Eu</td>
+                    <td bgcolor="#EE82EE" id="gd" onclick="getelem(id)">64<br>Gd</td>
+                    <td bgcolor="#EE82EE" id="tb" onclick="getelem(id)">65<br>Tb</td>
+                    <td bgcolor="#EE82EE" id="dy" onclick="getelem(id)">66<br>Dy</td>
+                    <td bgcolor="#EE82EE" id="ho" onclick="getelem(id)">67<br>Ho</td>
+                    <td bgcolor="#EE82EE" id="er" onclick="getelem(id)">68<br>Er</td>
+                    <td bgcolor="#EE82EE" id="tm" onclick="getelem(id)">69<br>Tm</td>
+                    <td bgcolor="#EE82EE" id="yb" onclick="getelem(id)">70<br>Yb</td>
+                    <td bgcolor="#EE82EE" id="ln" onclick="getelem(id)">71<br>Ln</td>
+                </tr>
+            </table>
+        </div>
+        <div id="newel1">
+            <table>
+                <tr>
+                    <td bgcolor="#C764B9" id="th" onclick="getelem(id)">90<br>Th</td>
+                    <td id="pa" onclick="getelem(id)" bgcolor="#C764B9">91<br>Pa</td>
+                    <td id="u" onclick="getelem(id)" bgcolor="#C764B9">92<br>U</td>
+                    <td bgcolor="#C764B9" id="np" onclick="getelem(id)">93<br>Np</td>
+                    <td bgcolor="#C764B9" id="pu" onclick="getelem(id)">94<br>Pu</td>
+                    <td bgcolor="#C764B9" id="am" onclick="getelem(id)">95<br>Am</td>
+                    <td bgcolor="#C764B9" id="cm" onclick="getelem(id)">96 <br>Cm</td>
+                    <td bgcolor="#C764B9" id="bk" onclick="getelem(id)">97<br>Bk</td>
+                    <td bgcolor="#C764B9" id="cf" onclick="getelem(id)">98<br>Cf</td>
+                    <td bgcolor="#C764B9" id="es" onclick="getelem(id)">99<br>Es</td>
+                    <td bgcolor="#C764B9" id="fm" onclick="getelem(id)">100<br>Fm</td>
+                    <td bgcolor="#C764B9" id="md" onclick="getelem(id)">101<br>Md</td>
+                    <td bgcolor="#C764B9" id="no" onclick="getelem(id)">102<br>No</td>
+                    <td bgcolor="#C764B9" id="lr" onclick="getelem(id)">103<br>Lr</td>
+                </tr>
+            </table>
+        </div>
+</div>
+<script>
+    var newel = document.getElementById("newel");
+    var newel1 = document.getElementById("newel1");
+    newel.style.display = "none";
+    newel1.style.display = "none";
+
+    function clicked() {
+        console.log("hi");
+        if (newel.style.display == "none") {
+            newel.style.display = "block";
+        } else {
+            newel.style.display = "none";
         }
+    }
 
-        function clicked1() {
-            console.log("hi2");
-            if (newel1.style.display == "none") {
-                newel1.style.display = "block";
-            } else {
-                newel1.style.display = "none";
-            }
+    function getelem(id) {
+        var element = document.getElementById(id)
+        var color = element.getAttribute('bgcolor')
+        var test = document.getElementById(id).innerHTML
+        var newdiv = document.getElementById("newdivision")
+        document.getElementById("viewtab").innerHTML = test
+        document.getElementById("newdivision").style.display = "block"
+        document.getElementById("periodic").style.filter = "blur(2px)"
+        document.getElementById("newdivision").style.background = color
+    }
+
+
+    function clicked1() {
+        console.log("hi2");
+        if (newel1.style.display == "none") {
+            newel1.style.display = "block";
+        } else {
+            newel1.style.display = "none";
         }
-    </script>
+    }
 
-
+    function backnorm() {
+        document.getElementById("newdivision").style.display = "none"
+        document.getElementById("periodic").style.filter = "blur(0px)"
+    }
+</script>
 
 
 
