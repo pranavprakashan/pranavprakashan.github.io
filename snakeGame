@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>snake game</title>
+    <meta charset="utf-8" type=encoding>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style type="text/css">
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+        }
+        
+        #container {
+            text-align: center;
+        }
+        
+        #canvas {
+            text-align: center;
+            background-color: black;
+            border: blue solid;
+        }
+        
+        #gameover {
+            position: absolute;
+            top: 200px;
+            left: 680px;
+            font-size: 25px;
+            text-align: center;
+            color: blanchedalmond;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Welcome to snake game</h1>
+    <div id="container">
+        <canvas id="canvas" width="400" height="300"></canvas>
+        <div><b id="gameover">GAME OVER</b></div>
+        <br>
+        <span>Score: <b id="score">0</b></span>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#gameover").hide();
+            //for showing the game over
+            var canvas = $('#canvas')[0];
+            var ctx = canvas.getContext('2d');
+            var canvasHeight = $('#canvas').height();
+            var canvasWidth = $('#canvas').width();
+            var dir;
+            var food;
+            var d;
+            var len = 10;
+            var count;
+            var k;
+            var m;
+            var move = false;
+            var bonus = 0;
+            // initial snake position
+            var snake = [{
+                x: 100,
+                y: 50,
+                oldX: 0,
+                oldY: 0
+            }, {
+                x: 100,
+                y: 60,
+                oldX: 0,
+                oldY: 0
+            }, {
+                x: 100,
+                y: 70,
+                oldX: 0,
+                oldY: 0
+            }];
+            var game = setInterval(gameLoop, 200)
+            var snakeWidth = snakeHeight = 10;
+            pointFood();
+            drawSnake();
+            //loop with 200ms time interval
+            function gameLoop() {
+                console.log("loop running")
+                clearCanvas();
+                drawSnake();
+                moveSnake();
+                checkFood();
+                drawfood();
+                checkCondition();
+            }
+            // for drawing the snake
+            function drawSnake() {
+                $.each(snake, function(index, value) {
+                    if (index == 0) {
+                        ctx.fillStyle = "red";
+                        ctx.fillRect(value.x, value.y, snakeWidth, snakeHeight);
+                        ctx.strokeStyle = "white";
+                        ctx.strokeRect(value.x, value.y, snakeWidth, snakeHeight);
+                    } else {
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(value.x, value.y, snakeWidth, snakeHeight);
+                        ctx.strokeStyle = "red";
+                        ctx.strokeRect(value.x, value.y, snakeWidth, snakeHeight);
+                    }
+                    if (index == 0) {
+                        snakecondition();
+                    }
+                })
+            }
+            // for moving the snake
+            function moveSnake() {
+                if (move == true) {
+                    $.each(snake, function(index, value) {
+                        snake[index].oldX = value.x;
+                        snake[index].oldY = value.y;
+                        if (index == 0) {
+
+                            if (dir == "DOWN") {
+                                snake[index].y = value.y + len;
+
+                            } else if (dir == "RIGHT") {
+                                snake[index].x = value.x + len;
+
+                            } else if (dir == "LEFT") {
+                                snake[index].x = value.x - len;
+
+                            } else if (dir == "UP") {
+                                snake[index].y = value.y - 10;
+                            }
+
+                        } else {
+                            snake[index].x = snake[index - 1].oldX;
+                            snake[index].y = snake[index - 1].oldY;
+
+                        }
+                    })
+                }
+            }
+            // for clearing the canvas each iterative period
+            function clearCanvas() {
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            }
+            // for listening input from the keyboard
+            $(document).keydown(function(e) {
+                var keypress = e.which;
+                move = true;
+                if (keypress == 37 && d != "RIGHT") {
+                    dir = d = "LEFT";
+                } else if (keypress == 40 && d != "UP") {
+                    dir = d = "DOWN"
+                } else if (keypress == 38 && d != "DOWN") {
+                    dir = d = "UP"
+                } else if (keypress == 39 && d != "LEFT") {
+                    dir = d = "RIGHT"
+                }
+            })
+
+            // for locating the food point
+            function pointFood() {
+                fx = getRandom((canvasWidth - 10), 10);
+                fy = getRandom((canvasHeight - 10), 10);
+                food = validfood(fx, fy);
+                k = fx;
+                m = fy;
+                drawfood();
+            }
+            // to get random position
+            function getRandom(max, mf) {
+                let result = Math.floor(Math.random() * max);
+                result = (result % 10 == 0) ? result : result + (mf - result % 10);
+                return result;
+            }
+
+            // to draw the food
+            function drawfood() {
+                $.each(food, function(index, value) {
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(food.x, food.y, 10, 10);
+                });
+            }
+
+            //to check if snake has eaten the food
+            function checkFood() {
+                $.each(snake, function(index, value) {
+                    if (index == 0) {
+                        if (snake[index].x == k && snake[index].y == m) {
+                            console.log("Food eaten")
+                            growSnake();
+                        }
+                    }
+                });
+            }
+
+            // for adding cells in the snake
+            function growSnake() {
+                snake.push({
+                    x: [snake.lenght].oldX,
+                    y: [snake.lenght].oldY
+                })
+                pointFood();
+                updatescore();
+            }
+
+            // for updating the score
+            function updatescore() {
+                count = parseInt($("#score").text());
+                bonus++;
+                count++;
+                if (bonus % 6 == 0) {
+                    count = count + 4;
+                    $('#score').text(count)
+                } else {
+                    $("#score").text(count)
+                }
+            }
+
+            // to check the border condition
+            function checkCondition() {
+                $.each(snake, function(index, value) {
+                    if (index == 0) {
+                        if (snake[index].x > canvasWidth - 10 || snake[index].x < 0 || snake[index].y > canvasHeight - 10 || snake[index].y < 0) {
+                            gameOver();
+                        }
+                    }
+
+                })
+            }
+
+            // to check snake eating itself
+            function snakecondition() {
+                var snakex = snakey = []
+                $.each(snake, function(index, value) {
+                    if (index == 0) {
+                        snakex = [];
+                        snakey = [];
+                    } else {
+                        snakex.push(value.x);
+                        snakey.push(value.y);
+                        $.each(snake, function(index, value) {
+                            if (index == 0) {
+                                if ($.inArray(value.x, snakex) != -1 && $.inArray(value.y, snakey) != -1) {
+                                    gameOver();
+                                } else {
+                                    snakex = [];
+                                    snakey = [];
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+
+            // To show game over and stop Loop
+            function gameOver() {
+                console.log("Game over")
+                $("#gameover").fadeIn();
+                clearInterval(game)
+            }
+
+            // To check if the food is not in the same position as snake
+            function validfood() {
+                var xarray = [];
+                var yarray = [];
+                $.each(snake, function(index, value) {
+                    xarray.push(value.x);
+                    yarray.push(value.y);
+                })
+                if ($.inArray(fx, xarray) != -1 && $.inArray(fy, yarray) != -1) {
+                    pointFood();
+                } else {
+                    return {
+                        x: fx,
+                        y: fy
+                    };
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
